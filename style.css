@@ -157,3 +157,24 @@ nav ul{
 }
 
 }
+#achievements{
+    padding:100px 10%;
+}
+
+.achievement-card{
+    background:#1e293b;
+    border-left:6px solid gold;
+    padding:25px;
+    border-radius:12px;
+    margin-top:20px;
+    box-shadow:0 0 15px rgba(0,0,0,0.3);
+}
+
+.achievement-card h3{
+    color:gold;
+    margin-bottom:15px;
+}
+
+.achievement-card p{
+    line-height:1.8;
+}
