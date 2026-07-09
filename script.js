@@ -1,45 +1,141 @@
-
+// ==========================
 // Portfolio V2 JavaScript
+// ==========================
 
-// Smooth scrolling for navigation links
-
-document.querySelectorAll("a[href^='#']").forEach(link => {
-
-    link.addEventListener("click", function(e){
-
+// Smooth scrolling
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', function(e) {
         e.preventDefault();
 
-        const target = document.querySelector(
-            this.getAttribute("href")
-        );
+        const target = document.querySelector(this.getAttribute('href'));
 
-        if(target){
-            target.scrollIntoView({
-                behavior: "smooth"
-            });
+        target.scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+
+// ==========================
+// Typing Effect
+// ==========================
+
+const words = [
+    "Future NDA Officer 🇮🇳",
+    "Web Developer",
+    "Science Student",
+    "Yoga Gold Medalist"
+];
+
+let wordIndex = 0;
+let letterIndex = 0;
+let deleting = false;
+
+const typingElement = document.querySelector(".hero-left h2 span");
+
+function typeEffect() {
+
+    const currentWord = words[wordIndex];
+
+    if (!deleting) {
+
+        typingElement.textContent =
+            currentWord.substring(0, letterIndex++);
+
+        if (letterIndex > currentWord.length) {
+
+            deleting = true;
+
+            setTimeout(typeEffect, 1500);
+
+            return;
+        }
+
+    } else {
+
+        typingElement.textContent =
+            currentWord.substring(0, letterIndex--);
+
+        if (letterIndex < 0) {
+
+            deleting = false;
+
+            wordIndex++;
+
+            if (wordIndex >= words.length) {
+
+                wordIndex = 0;
+
+            }
+
+        }
+
+    }
+
+    setTimeout(typeEffect, deleting ? 50 : 120);
+
+}
+
+typeEffect();
+
+
+// ==========================
+// Fade Animation
+// ==========================
+
+const observer = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+            entry.target.classList.add("show");
+
         }
 
     });
 
 });
 
+document.querySelectorAll("section").forEach(section => {
+
+    section.classList.add("hidden");
+
+    observer.observe(section);
+
+});
 
 
-// Simple reveal animation on scroll
+// ==========================
+// Active Navigation
+// ==========================
 
 const sections = document.querySelectorAll("section");
-
+const navLinks = document.querySelectorAll("nav ul li a");
 
 window.addEventListener("scroll", () => {
 
+    let current = "";
+
     sections.forEach(section => {
 
-        const position = section.getBoundingClientRect().top;
+        const top = section.offsetTop - 150;
 
-        if(position < window.innerHeight - 100){
+        if (scrollY >= top) {
 
-            section.style.opacity = "1";
-            section.style.transform = "translateY(0)";
+            current = section.getAttribute("id");
+
+        }
+
+    });
+
+    navLinks.forEach(link => {
+
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") == "#" + current) {
+
+            link.classList.add("active");
 
         }
 
@@ -48,28 +144,72 @@ window.addEventListener("scroll", () => {
 });
 
 
+// ==========================
+// Scroll To Top Button
+// ==========================
 
-// Initial section animation setup
+const topButton = document.createElement("button");
 
-sections.forEach(section => {
+topButton.innerHTML = "⬆";
 
-    section.style.opacity = "0";
-    section.style.transform = "translateY(40px)";
-    section.style.transition = "0.8s ease";
+topButton.id = "topBtn";
+
+document.body.appendChild(topButton);
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 400) {
+
+        topButton.style.display = "block";
+
+    } else {
+
+        topButton.style.display = "none";
+
+    }
+
+});
+
+topButton.onclick = () => {
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+};
+
+
+// ==========================
+// Button Click Animation
+// ==========================
+
+document.querySelectorAll(".btn,.btn2").forEach(button => {
+
+    button.addEventListener("click", function() {
+
+        this.style.transform = "scale(.95)";
+
+        setTimeout(() => {
+
+            this.style.transform = "scale(1)";
+
+        }, 150);
+
+    });
 
 });
 
 
+// ==========================
+// Welcome Message
+// ==========================
 
-// Current year update in footer
+window.onload = () => {
 
-const year = new Date().getFullYear();
+    console.log("Portfolio V2 Loaded Successfully!");
 
-const footerText = document.querySelector("footer p");
-
-if(footerText){
-
-    footerText.innerHTML =
-    `© ${year} Vinay Saini. All Rights Reserved.`;
-
-}
+};
