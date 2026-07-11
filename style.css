@@ -1,4 +1,4 @@
-/* Premium Eco-Friendly Business Website CSS */
+/* Eco-Friendly Premium Business Website CSS */
 
 /* Reset */
 * {
@@ -7,7 +7,7 @@
   box-sizing: border-box;
 }
 body {
-  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+  font-family: Arial, sans-serif;
   background: #fdfdfd;
   color: #333;
   line-height: 1.6;
@@ -15,38 +15,31 @@ body {
 
 /* Hero Section */
 header {
-  background: linear-gradient(135deg, #4CAF50, #8BC34A);
+  background: #4CAF50; /* solid green for compatibility */
   color: #fff;
   text-align: center;
-  padding: 100px 20px;
-  animation: fadeIn 1.5s ease-in-out;
+  padding: 80px 20px;
 }
 header h1 {
-  font-size: 3.5em;
+  font-size: 3em;
   font-weight: bold;
-  letter-spacing: 2px;
 }
 header p {
-  font-size: 1.3em;
-  margin-top: 15px;
-  opacity: 0.9;
+  font-size: 1.2em;
+  margin-top: 10px;
 }
 
 /* Navigation */
 nav {
   background: #2E7D32;
-  padding: 15px;
+  padding: 12px;
   text-align: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
 }
 nav a {
   color: #fff;
-  margin: 0 20px;
+  margin: 0 15px;
   text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s;
+  font-weight: bold;
 }
 nav a:hover {
   color: #C8E6C9;
@@ -54,25 +47,15 @@ nav a:hover {
 
 /* Sections */
 section {
-  padding: 80px 20px;
-  max-width: 1100px;
+  padding: 60px 20px;
+  max-width: 1000px;
   margin: auto;
 }
 section h2 {
   text-align: center;
-  font-size: 2.2em;
-  margin-bottom: 30px;
+  font-size: 2em;
+  margin-bottom: 20px;
   color: #2E7D32;
-  position: relative;
-}
-section h2::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 4px;
-  background: #4CAF50;
-  margin: 10px auto;
-  border-radius: 2px;
 }
 
 /* Product Cards */
@@ -84,50 +67,39 @@ section h2::after {
 }
 .card {
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-  padding: 30px;
-  flex: 1 1 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 20px;
+  flex: 1 1 250px;
   text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 .card h3 {
   color: #388E3C;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 /* Contact Form */
 form {
   display: flex;
   flex-direction: column;
-  max-width: 600px;
+  max-width: 500px;
   margin: auto;
 }
 input, textarea {
   margin: 10px 0;
-  padding: 14px;
+  padding: 12px;
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 6px;
   font-size: 1em;
-  transition: border 0.3s;
-}
-input:focus, textarea:focus {
-  border-color: #4CAF50;
-  outline: none;
 }
 button {
   background: #4CAF50;
   color: #fff;
   border: none;
-  padding: 14px;
-  border-radius: 8px;
-  font-size: 1.1em;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 1em;
   cursor: pointer;
-  transition: background 0.3s;
 }
 button:hover {
   background: #2E7D32;
@@ -138,20 +110,14 @@ footer {
   background: #2E7D32;
   color: #fff;
   text-align: center;
-  padding: 25px;
+  padding: 20px;
   font-size: 0.9em;
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   header h1 {
-    font-size: 2.5em;
+    font-size: 2em;
   }
   .services {
     flex-direction: column;
